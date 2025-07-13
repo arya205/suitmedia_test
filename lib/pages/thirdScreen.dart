@@ -55,6 +55,10 @@ class _ThirdScreenState extends State<ThirdScreen> {
               return Center(child: Text('Error: ${snapshot.error}'));
             } else {
               final data = snapshot.data!;
+              if (data.isEmpty) {
+                return const Center(child: Text('Data is empty'));
+              }
+              
               return ListView.builder(
                 itemCount: data.length,
                 itemBuilder: (context, index) {
